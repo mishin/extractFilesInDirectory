@@ -40,9 +40,8 @@ class extractFilesInDirectory {
         try (DirectoryStream<Path> pathList = Files.newDirectoryStream(Paths.get(getArchiveDirectory()),
                 documentFilter)) {
             for (Path path : pathList) {
-                Path tempDirectory = Files.createTempDirectory(suffix);
-                System.out.println("extract " + path.toFile() + " to tempDirectory.toString() = " +
-                        tempDirectory.toString());
+                Path tempDirectory = Files.createTempDirectory(suffix + path.toFile().getName() + "_");
+                System.out.println("extract " + path.toFile() + " to " + tempDirectory.toString());
                 ZipUtil.unpack(path.toFile(), tempDirectory.toFile());
             }
         } catch (IOException e) {
