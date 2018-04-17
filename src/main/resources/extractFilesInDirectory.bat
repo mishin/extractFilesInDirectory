@@ -1,1 +1,1 @@
-java -jar extractFilesInDirectory-1.0.0.jar > extractFilesInDirectory.log 2>&1
+java -jar extractFilesInDirectory-1.1.0.jar > extractFilesInDirectory.log 2>&1
