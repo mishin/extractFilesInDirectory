@@ -24,14 +24,14 @@ class extractFilesInDirectory {
     }
 
     /**
-     * Правим уровень логирования в ESB процессе
+     * Разархивируем все файлы по заданной маске
      */
     public static void main(String[] args) throws IOException {
         extractFilesInDirectory extractFilesInDirectory = new extractFilesInDirectory(readProperties());
-        extractFilesInDirectory.changeTracingLevelInDirectory();
+        extractFilesInDirectory.exctractAllFilesToTemp();
     }
 
-    private void changeTracingLevelInDirectory() {
+    private void exctractAllFilesToTemp() {
         System.out.println(String.format("extract " + ext + " files in directory: %s", getArchiveDirectory()));
         DirectoryStream.Filter<Path> documentFilter = entry -> {
             String fileName = entry.getFileName().toString();
